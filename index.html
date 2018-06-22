@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		h1{
+			text-align: center;
+			padding-top: 20px;
+		}
+		table{
+			margin-right:auto;
+			margin-left:auto;
+		}
+		td{
+			
+			width: 50px;
+    		height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Jogo da velha</h1>
+
+	<table border="1">
+		<tr>
+			<td id="p1" onclick="jogo(this.id);resultado();"></td>
+			<td id="p2" onclick="jogo(this.id);resultado();"></td>
+			<td id="p3" onclick="jogo(this.id);resultado();"></td>
+		</tr>
+		<tr>
+			<td id="p4" onclick="jogo(this.id);resultado();"></td>
+			<td id="p5" onclick="jogo(this.id);resultado();"></td>
+			<td id="p6" onclick="jogo(this.id);resultado();"></td>
+		</tr>
+		<tr>
+			<td id="p7" onclick="jogo(this.id);resultado();"></td>
+			<td id="p8" onclick="jogo(this.id);resultado();"></td>
+			<td id="p9" onclick="jogo(this.id);resultado();"></td>
+		</tr>
+	</table>
+	<h1 id="gx"></h1>
+	<h1 id="go"></h1>
+
+
+	<form style="text-align: center;">
+	<input type="button" value="Novo Jogo" onclick="novoJogo(this);">
+	</form>
+
+	<script>
+		var rodada = 0;
+		var gx = 0;
+		var go = 0;
+		function jogo(celula) {
+			escolha = document.getElementById(celula).innerHTML;
+			if(rodada == 0){
+				if (escolha == "X" || escolha == "O"){
+					
+				}else{
+					document.getElementById(celula).innerHTML = "X";
+					rodada = 1;
+				}
+			}else{
+				if (escolha == "X" || escolha == "O"){
+					
+				}else{
+					document.getElementById(celula).innerHTML = "O";
+					rodada = 0;
+				}
+			}	
+		}
+
+		function resultado(){
+		   p1 = document.getElementById('p1').innerHTML;
+		   p2 = document.getElementById('p2').innerHTML;
+		   p3 = document.getElementById('p3').innerHTML;
+		   p4 = document.getElementById('p4').innerHTML;
+		   p5 = document.getElementById('p5').innerHTML;
+		   p6 = document.getElementById('p6').innerHTML;
+		   p7 = document.getElementById('p7').innerHTML;
+		   p8 = document.getElementById('p8').innerHTML;
+		   p9 = document.getElementById('p9').innerHTML;
+		   if( ((p1 == "X") && (p2 == "X") && (p3 == "X")) || ((p4 == "X") && (p5 == "X") && (p6 == "X")) || ((p7 == "X") && (p8 == "X") && (p9 == "X")) || ((p1 == "X") && (p4 == "X") && (p7 == "X")) || ((p2 == "X") && (p5 == "X") && (p8 == "X")) || ((p3 == "X") && (p6 == "X") && (p9 == "X")) || ((p1 == "X") && (p5 == "X") && (p9 == "X")) || ((p3 == "X") && (p5 == "X") && (p7 == "X"))){
+		       alert('X ganhou!');
+		       gx++;
+		       document.getElementById("gx").innerHTML = "Vitorias do X: " + gx;
+		   }else{
+		   		if( ((p1 == "O") && (p2 == "O") && (p3 == "O")) || ((p4 == "O") && (p5 == "O") && (p6 == "O")) || ((p7 == "O") && (p8 == "O") && (p9 == "O")) || ((p1 == "O") && (p4 == "O") && (p7 == "O")) || ((p2 == "O") && (p5 == "O") && (p8 == "O")) || ((p3 == "O") && (p6 == "O") && (p9 == "O")) || ((p1 == "O") && (p5 == "O") && (p9 == "O")) || ((p3 == "O") && (p5 == "O") && (p7 == "O"))){
+		       		alert('O ganhou!');
+		       		go++;
+		       		document.getElementById("go").innerHTML = "Vitorias do O: " + go;	
+		   		}
+		   }
+		}
+
+		function novoJogo(){
+			document.getElementById("p1").innerHTML = "";
+			document.getElementById("p2").innerHTML = "";
+			document.getElementById("p3").innerHTML = "";
+			document.getElementById("p4").innerHTML = "";
+			document.getElementById("p5").innerHTML = "";
+			document.getElementById("p6").innerHTML = "";
+			document.getElementById("p7").innerHTML = "";
+			document.getElementById("p8").innerHTML = "";
+			document.getElementById("p9").innerHTML = "";
+			rodada = 0
+		}
+		
+			
+	</script>
+
+</body>
+</html>
